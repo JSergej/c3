@@ -22,6 +22,15 @@
             animation: gradientShift 30s ease infinite;
             padding: 20px;
             transition: background 0.3s ease;
+            gap: 20px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            max-width: 1200px;
+            width: 100%;
         }
 
         body.light-theme {
@@ -298,15 +307,221 @@
             grid-column: span 2;
         }
 
+        .history {
+            background: linear-gradient(145deg, #6a6a6a, #7a7a7a);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                inset 0 2px 10px rgba(255, 255, 255, 0.1),
+                inset 0 -2px 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            max-height: 600px;
+            display: flex;
+            flex-direction: column;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body.light-theme .history {
+            background: linear-gradient(145deg, #c8c8c8, #b8b8b8);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.15),
+                inset 0 2px 10px rgba(255, 255, 255, 0.8),
+                inset 0 -2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        body.light-theme .history-header {
+            border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .history-title {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        body.light-theme .history-title {
+            color: #1a1a1a;
+        }
+
+        .history-reset {
+            background: linear-gradient(145deg, #ff3b30, #d6302a);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.3),
+                inset 0 1px 2px rgba(255, 255, 255, 0.1);
+        }
+
+        .history-reset:hover {
+            background: linear-gradient(145deg, #ff5c52, #ff3b30);
+            transform: translateY(-1px);
+            box-shadow: 
+                0 4px 8px rgba(0, 0, 0, 0.4),
+                inset 0 1px 2px rgba(255, 255, 255, 0.15);
+        }
+
+        .history-reset:active {
+            transform: translateY(0);
+            box-shadow: 
+                0 1px 2px rgba(0, 0, 0, 0.3),
+                inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        body.light-theme .history-reset {
+            background: linear-gradient(145deg, #eb534b, #df534f);
+            color: #fff;
+        }
+
+        body.light-theme .history-reset:hover {
+            background: linear-gradient(145deg, #ff5c52, #ff3b30);
+        }
+
+        .history-list {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .history-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .history-list::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .history-list::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+
+        .history-list::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        body.light-theme .history-list::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-theme .history-list::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        body.light-theme .history-list::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .history-item {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 12px;
+            color: #fff;
+            font-size: 14px;
+            word-wrap: break-word;
+            transition: background 0.3s ease, color 0.3s ease;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        body.light-theme .history-item {
+            background: rgba(255, 255, 255, 0.5);
+            color: #1a1a1a;
+        }
+
+        .history-expression {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 13px;
+            margin-bottom: 4px;
+            transition: color 0.3s ease;
+        }
+
+        body.light-theme .history-expression {
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        .history-result {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .history-empty {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            padding: 40px 20px;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        body.light-theme .history-empty {
+            color: rgba(0, 0, 0, 0.5);
+        }
+
         /* Адаптация для мобильных устройств */
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .history {
+                width: 100%;
+                max-width: 400px;
+                max-height: 300px;
+            }
+        }
+
         @media (max-width: 480px) {
             body {
                 padding: 10px;
             }
 
+            .container {
+                gap: 15px;
+            }
+
             .calculator {
                 padding: 15px;
                 border-radius: 15px;
+            }
+
+            .history {
+                padding: 15px;
+                border-radius: 15px;
+                max-height: 250px;
+            }
+
+            .history-title {
+                font-size: 18px;
             }
 
             .theme-toggle-container {
@@ -400,7 +615,17 @@
     </style>
 </head>
 <body>
-    <div class="calculator">
+    <div class="container">
+        <div class="history">
+            <div class="history-header">
+                <h2 class="history-title">Журнал операций</h2>
+                <button class="history-reset" onclick="resetHistory()">Сброс</button>
+            </div>
+            <div class="history-list" id="historyList">
+                <div class="history-empty">Журнал пуст</div>
+            </div>
+        </div>
+        <div class="calculator">
         <div class="theme-toggle-container">
             <span class="theme-toggle-label">🌙</span>
             <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()"></div>
@@ -435,16 +660,20 @@
             <button class="equals" onclick="calculate()">=</button>
         </div>
     </div>
+    </div>
 
     <script>
         let currentInput = '0';
         let expression = '';
         let shouldResetDisplay = false;
+        const history = [];
+        const MAX_HISTORY_ITEMS = 50;
 
         const resultDisplay = document.getElementById('result');
         const expressionDisplay = document.getElementById('expression');
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
+        const historyList = document.getElementById('historyList');
 
         // Загрузка сохраненной темы
         function loadTheme() {
@@ -529,7 +758,12 @@
                     throw new Error('Invalid calculation');
                 }
                 
-                currentInput = parseFloat(result.toFixed(10)).toString();
+                const resultValue = parseFloat(result.toFixed(10)).toString();
+                
+                // Добавляем операцию в журнал
+                addToHistory(fullExpression, resultValue);
+                
+                currentInput = resultValue;
                 expression = '';
                 shouldResetDisplay = true;
                 updateDisplay();
@@ -539,6 +773,48 @@
                 shouldResetDisplay = true;
                 updateDisplay();
             }
+        }
+
+        function addToHistory(expression, result) {
+            // Если достигнут лимит, удаляем первую запись
+            if (history.length >= MAX_HISTORY_ITEMS) {
+                history.shift();
+            }
+            
+            // Добавляем новую запись
+            history.push({
+                expression: expression,
+                result: result,
+                timestamp: new Date()
+            });
+            
+            updateHistoryDisplay();
+        }
+
+        function updateHistoryDisplay() {
+            if (history.length === 0) {
+                historyList.innerHTML = '<div class="history-empty">Журнал пуст</div>';
+                return;
+            }
+            
+            historyList.innerHTML = '';
+            
+            // Отображаем записи в обратном порядке (новые сверху)
+            for (let i = history.length - 1; i >= 0; i--) {
+                const item = history[i];
+                const historyItem = document.createElement('div');
+                historyItem.className = 'history-item';
+                historyItem.innerHTML = `
+                    <div class="history-expression">${item.expression}</div>
+                    <div class="history-result">= ${item.result}</div>
+                `;
+                historyList.appendChild(historyItem);
+            }
+        }
+
+        function resetHistory() {
+            history.length = 0;
+            updateHistoryDisplay();
         }
 
         function clearAll() {
